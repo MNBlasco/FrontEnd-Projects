@@ -1,0 +1,301 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+
+/* GLOBALES*/
+
+*, *:before, *:after {
+    box-sizing: inherit;      /* Box model */
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;      /* Box model */
+    scroll-snap-type: y proximity;    /* Scroll snap */
+}
+
+/* Scroll snap */
+
+.servicios, .navegacion-principal, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+body {
+    font-size: 16px;  /* 1rem = 10px */
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /* Fondo con degradado */
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;      /*  Alinea horizontalmente elementos block / hijos de padres NO FLEX. Se puede definir en 4 lineas tambien */
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(161,161,161,0.4);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(161,161,161,0.4);
+    box-shadow: 0px 5px 15px 0px rgba(161,161,161,0.4);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* TIPOGRAFIA */
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+/* TITULO */
+
+.titulo span {
+    font-size: 2rem;
+}
+
+/* Utilidades */
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* NAVEGACION PRINCIPAL */
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.navegacion-principal a {
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;    /* Elimina el subrayado del enlace */
+    padding: 1rem;   /* Se puede definir en 2 o 4 lineas tambien */
+    font-size: 2rem;
+    font-weight: bold;
+   
+}
+
+.navegacion-principal a:hover {
+    background-color: #ffc107;
+    color: var(--oscuro);
+}
+
+/* Media Querie para tablets y pc */
+/* Este codigo aplica para pantallas de 768px en adelante, osea que tambien sirve para pc */
+@media (min-width: 768px) {     
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Media Querie para celulares
+@media (min-width: 480px) {
+
+}*/
+
+/* HERO */
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 410px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba( 0,0,0, .7);      /* Son lo mismo, este es mas compatible */
+    background-color: rgb(0 0 0 0 / 70% );     /* Son lo mismo */
+    width: 100%;
+    height: 100%;
+
+    /* Codigo para alinear columnas de manera horizontal y vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, .contenido-hero p {
+    color: var(--blanco);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.contenido-hero a {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Servicios */
+@media (min-width: 768px) {
+    .servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);      /* Los 3 son iguales, pero este es el mas practico. 1fr = 1 fraccion */
+    grid-template-columns: 33,3% 33,3% 33,3%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;   /* Separar los elemtentos de los bordes de las columnas */
+    }
+}
+
+.servicio {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.servicio h3{
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;    /* Interlineado de parrafo */
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;   /* Hace que el cuadrado sea un circulo perfecto */
+    display: flex;
+    justify-content: space-evenly;  /* Modifica como se muestran los iconitos dentro del circulo */
+    align-items: center;
+}
+
+/* CONTACTO */
+
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100% );
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;  /* Elimina el borde que trae por default el fieldset */
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;   /* Crea un margen hacia abajo entre la leyenda y el primer label */
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 1fr 1fr;     /* Dividimos en 2 columnas el formulario */
+        grid-template-rows: auto auto 20rem;     /* Dividimos en 3 filas (la ultima mas grande) el formulario */
+        column-gap: 1rem;
+    }
+
+    .campo:nth-child(3), .campo:nth-child(4) {      /* Le decimos que al 3er y 4to .campo que aparecen los expanda de la primer a la ultima columna */
+        grid-column: 1 / 3;
+    }
+
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+
+}
+
+.campo textarea {
+    height: 20rem;      /* Aumenta el tamaño donde se llena el mensaje */
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/* Footer */
+
+.footer p {
+    text-align: center;
+}
